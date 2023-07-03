@@ -32,19 +32,15 @@ clean-targets:         # directories to be removed by `dbt clean`
 # as tables. These settings can be overridden in the individual model files
 # using the `{{ config(...) }}` macro.
 models:
-  cea-aw-390822: # <-- Name of the project. If you renamed your project you have to change this as well
+  adventure_works: # <-- Name of the project. If you renamed your project you have to change this as well
     # Applies to all files under models/example/
     adventure_works:
-      marts:
-        +materialized: table
-        +schema: marts
-      intermediate: 
-        +materialized: table
       staging:
         +materialized: table
-        +schema: staging 
+      tags:
+        - "aw"
 
 seeds:
   cea-aw-390822: # <-- Name of the project. If you renamed your project you have to change this as well
-    adventure_works:
-      +schema: raw_aw
+    sap_adventure_works:
+      +schema: sap_adw
