@@ -1,0 +1,286 @@
+version: 2
+
+sources:
+
+  - name: adventure_works
+    description: "This database summarize the main information of the company Adventure Works and its internal processes."
+    schema: adventure_works
+    tables:
+      - name: address
+        description: "This table contains information about location - streets, cities and states."
+        columns:
+          - name: addressid
+            description: "Identification of the address."
+            tests:
+              - not_null
+            
+          - name: addressline1
+            description: "First line of the address, with streets and building number information."
+
+          - name: addressline2
+            description: "Second line of the address, with streets and building number information."
+
+          - name: city
+            description: "Name of the city."
+
+          - name: stateprovinceid
+            description: "Name of the state or province."
+
+          - name: postalcode
+            description: "Contains the number of the postalcode."
+
+      - name: countryregion
+        description: "This table contains information about the countries envolved in the addresses"
+        columns:
+          - name: countryregioncode
+            description: "Identification of the country."
+            tests:
+              - not_null
+
+          - name: name
+            description: "Name of the country."
+
+      - name: creditcard
+        description: "This table contains information about creditcards used by customers."
+        columns:
+          - name: creditcardid
+            description: "Identification of the creditcard."
+            tests:
+              - not_null
+
+          - name: cardtype
+            description: "Indicates the type of the creditcard."
+
+          - name: cardnumber
+            description: "Number of the creditcard."
+
+      - name: customer
+        description: "This table contains information about the customers."
+        columns:
+          - name: customerid
+            description: "Identification of the customer."
+            tests:
+              - not_null
+
+          - name: personid
+            description: "Identification of the individuals related to the company in general."
+
+          - name: storeid
+            description: "Identification of the store."
+
+          - name: territoryid
+            description: "Identification of the territory."
+
+      - name: person
+        description: "This table contains information about all the people related to the company."
+        columns:
+          - name: businessentityid
+            description: "Identification of the person."
+            tests:
+              - not_null
+
+          - name: persontype
+            description: "Indicates the kind of relation the person has with the company."
+
+          - name: title
+            description: "Information about the person title."
+
+          - name: firstname
+            description: "First name of the person."
+
+          - name: middlename
+            description: "Middlename of the person."
+
+          - name: lastname
+            description: "Lastname of the person."
+
+          - name: emailpromotion
+            description: "Indicates if the person decided to receive promotion by email (1) or not (0)."
+
+      - name: personcreditcard
+        description: "This table relates the person with the creditcard."
+        columns:
+          - name: businessentityid
+            description: "Identification of the person."
+            tests:
+              - not_null
+
+          - name: creditcardid
+            description: "Identification of the creditcard."
+            tests:
+              - not_null
+
+      - name: product
+        description: "This table contains information about the products."
+        columns:
+          - name: productid
+            description: "Unique number for each product of the table."
+            tests:
+              - not_null
+
+          - name: name
+            description: "Name of the product."
+            tests:
+              - not_null
+
+          - name: productnumber
+            description: "Product's code."
+
+          - name: safetystocklevel
+            description: "Indicates the minimun amount to be kept in stock."
+
+          - name: reorderpoint
+            description: "Indicates when to reorder the product based on the quantity left in stock."
+
+          - name: standardcost
+            description: "Product's cost."
+
+          - name: listprice
+            description: "Product's suggested price."
+
+          - name: daystomanufacture
+            description: "Indicates how many days it takes to produce the product."
+
+          - name: productline
+            description: "Indicates the line of the product."
+
+          - name: productsubcategoryid
+            description: "Identification of the subcategory."
+
+          - name: productmodelid
+            description: "Identification of the product's model."
+
+          - name: sellstartdate
+            description: "When the product started to be sold."
+
+          - name: sellenddate
+            description: "When the product stopped to be sold."
+
+          - name: discontinueddate
+            description: "When the product were discontinued."
+
+      - name: salesorderdetail
+        description: "This table contains detailed information about the orders."
+        columns:
+          - name: salesorderid
+            description: "Identification of the order."
+            tests:
+              - not_null
+
+          - name: carriertrackingnumber
+            description: "Transportation's tracking number."
+
+          - name: orderqty
+            description: "Quantity of products."
+
+          - name: productid
+            description: "Identification of the product."
+
+          - name: specialofferid
+            description: "Identification of special offer."
+
+          - name: unitprice
+            description: "Unitary price."
+
+          - name: unitpricediscount
+            description: "Discount amount."
+
+      - name: salesorderheader
+        description: "This table contains general information about the orders."
+        columns:
+          - name: salesorderid
+            description: "Identification of the order."
+            tests:
+              - not_null
+    
+          - name: orderdate
+            description: "Date of the order."
+
+          - name: duedate
+            description: "Deadline to fulfill the sale."
+
+          - name: shipdate
+            description: "Date when the order were shipped."
+
+          - name: status
+            description: "Status of the order."
+
+          - name: accountnumber
+            description: "Number of customers account."
+
+          - name: customerid
+            description: "Identification of the customer."
+
+          - name: territoryid
+            description: "Identification of the territory."
+
+          - name: shiptoaddressid
+            description: "Identification of the address of the shippment."
+
+          - name: shipmethodid
+            description: "Identification of the shippment's method."
+
+          - name: creditcardid
+            description: "Identification of the creditcard."
+
+          - name: currencyrateid
+            description: "Identification of currency rate."
+
+          - name: subtotal
+            description: "Total preview."
+
+          - name: taxamt
+            description: "Total of the taxes."
+
+          - name: freight
+            description: "Freight's price."
+
+          - name: totaldue
+            description: "Total price of the order."        
+
+      - name: salesorderheadersalesreason
+        description: "This table relates the order with the reason."
+        columns:
+          - name: salesorderid
+            description: "Identification of the order."
+            tests:
+              - not_null
+
+          - name: salesreasonid
+            description: "Identification of the reason."
+            tests:
+              - not_null
+
+      - name: salesreason
+        description: "This table contains information about the reason why the order was made."
+        columns:
+          - name: salesreasonid
+            description: "Identification of the reason."
+            tests:
+              - not_null
+
+          - name: name
+            description: "The reason itself."
+
+          - name: reasontype
+            description: "Indicates the subject of the reason."
+
+      - name: stateprovince
+        description: "This table contains information about addresses."
+        columns:
+          - name: stateprovinceid
+            description: "Identification of the state or province."
+            tests:
+              - not_null
+
+          - name: stateprovincecode
+            description: "Code of the state or province."
+
+          - name: countryregioncode
+            description: "Code of the country."
+
+          - name: name
+            description: "Name of the state."
+
+          - name: territoryid
+            description: "Identification of the territory."  
