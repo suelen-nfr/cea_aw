@@ -1,0 +1,53 @@
+version: 2
+ 
+models:
+  - name: dim_adventureworks_product
+    description: "This table contains information about the products."
+    columns:
+      - name: product_sk
+        description: "The primary key of the table."
+        tests:
+          - unique
+          - not_null
+
+      - name: productid
+        description: "Unique number for each product of the table."
+
+      - name: productname
+        description: "Name of the product."
+
+      - name: productnumber
+        description: "Product's code."
+
+      - name: safetystocklevel
+        description: "Indicates the minimun amount to be kept in stock."
+
+      - name: reorderpoint
+        description: "Indicates when to reorder the product based on the quantity left in stock."
+
+      - name: standardcost
+        description: "Product's cost."
+
+      - name: listprice
+        description: "Product's suggested price."
+
+      - name: daystomanufacture
+        description: "Indicates how many days it takes to produce the product."
+
+      - name: productline
+        description: "Indicates the line of the product."
+
+      - name: productsubcategoryid
+        description: "Identification of the subcategory."
+
+      - name: productmodelid
+        description: "Identification of the product's model."
+
+      - name: sellstartdate
+        description: "When the product started to be sold."
+
+      - name: sellenddate
+        description: "When the product stopped to be sold."
+
+      - name: discontinueddate
+        description: "When the product were discontinued."

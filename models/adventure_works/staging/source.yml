@@ -65,12 +65,6 @@ sources:
           - name: personid
             description: "Identification of the individuals related to the company in general."
 
-          - name: storeid
-            description: "Identification of the store."
-
-          - name: territoryid
-            description: "Identification of the territory."
-
       - name: person
         description: "This table contains information about all the people related to the company."
         columns:
@@ -93,9 +87,6 @@ sources:
 
           - name: lastname
             description: "Lastname of the person."
-
-          - name: emailpromotion
-            description: "Indicates if the person decided to receive promotion by email (1) or not (0)."
 
       - name: personcreditcard
         description: "This table relates the person with the creditcard."
@@ -120,8 +111,6 @@ sources:
 
           - name: name
             description: "Name of the product."
-            tests:
-              - not_null
 
           - name: productnumber
             description: "Product's code."

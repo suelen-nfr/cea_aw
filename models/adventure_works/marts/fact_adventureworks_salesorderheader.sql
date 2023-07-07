@@ -26,13 +26,9 @@ with
         select
             salesorderid
             , customerid
-            , territoryid
             , shiptoaddressid
-            , shipmethodid
             , creditcardid
-            , currencyrateid
             , orderstatus
-            , accountnumber
             , subtotal
             , taxamt
             , freight
@@ -45,35 +41,31 @@ with
     , join_sk as (
         select
             {{ dbt_utils.generate_surrogate_key([
-                'fact_orderdetails.salesorderid'
+                'fact_orderheader.salesorderid'
                 , 'dim_creditcard.creditcard_sk'
                 , 'dim_customer.customer_sk'
                 , 'dim_location.location_sk'
-            ]) }} as orderdetails_sk
+            ]) }} as orderheader_sk
             , dim_creditcard.creditcard_sk as creditcard_fk
             , dim_customer.customer_sk as customer_fk
             , dim_location.location_sk as location_fk
             , dim_calendar.metric_date
             , fact_orderheader.salesorderid
             , fact_orderheader.customerid
-            , fact_orderheader.territoryid
             , fact_orderheader.shiptoaddressid
-            , fact_orderheader.shipmethodid
             , fact_orderheader.creditcardid
-            , fact_orderheader.currencyrateid
             , fact_orderheader.orderstatus
-            , fact_orderheader.accountnumber
             , fact_orderheader.subtotal
             , fact_orderheader.taxamt
             , fact_orderheader.freight
             , fact_orderheader.totaldue
             , fact_orderheader.duedate
             , fact_orderheader.shipdate
-        from fact_orderdetails
-        left join dim_creditcard on fact_orderdetails.creditcardid = dim_creditcard.creditcardid
-        left join dim_customer on fact_orderdetails.customerid = dim_customer.customerid
-        left join dim_location on fact_orderdetails.shiptoaddressid = dim_location.addressid
-        left join dim_calendar on fact_orderdetails.metric_date = dim_calendar.metric_date
+        from fact_orderheader
+        left join dim_creditcard on fact_orderheader.creditcardid = dim_creditcard.creditcardid
+        left join dim_customer on fact_orderheader.customerid = dim_customer.customerid
+        left join dim_location on fact_orderheader.shiptoaddressid = dim_location.addressid
+        left join dim_calendar on fact_orderheader.metric_date = dim_calendar.metric_date
     )
 select *
 from join_sk

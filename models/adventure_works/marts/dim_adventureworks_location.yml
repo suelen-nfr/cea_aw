@@ -1,0 +1,38 @@
+version: 2
+ 
+models:
+  - name: dim_adventureworks_location
+    description: "Information about address, city, state and country of the clients."
+    columns:
+      - name: location_sk
+        description: "The primary key of the table."
+        tests:
+          - unique
+          - not_null
+
+      - name: businessentityid
+        description: "Identification of the business entity."
+
+      - name: addressid
+        description: "Identification of the address."
+     
+      - name: stateprovinceid
+        description: "Identification of the person."
+     
+      - name: countryregioncode
+        description: "Identification of the country."
+
+      - name: addressline1
+        description: "First line of the address, with streets and building number information."
+
+      - name: addressline2
+        description: "Second line of the address, with streets and building number information."
+
+      - name: city
+        description: "Name of the city."
+
+      - name: stateprovince
+        description: "Name of the state or province."
+
+      - name: country
+        description: "Name of the country."

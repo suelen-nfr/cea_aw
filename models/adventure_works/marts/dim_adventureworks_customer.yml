@@ -1,1 +1,35 @@
+version: 2
+ 
+models:
+  - name: dim_adventureworks_customer
+    description: "Information about the current clients of Adventure Works."
+    columns:
+      - name: customer_sk
+        description: "The primary key of the table."
+        tests:
+          - unique
+          - not_null
 
+      - name: customerid 
+        description: "Identification of the customer."
+
+      - name: personid
+        description: "Identification of the individuals related to the company in general."
+     
+      - name: businessentityid
+        description: "Identification of the person."
+     
+      - name: persontype
+        description: "Indicates the kind of relation the person has with the company."
+
+      - name: title
+        description: "Information about the person title."
+
+      - name: firstname
+        description: "First name of the person."
+
+      - name: middlename
+        description: "Middlename of the person."
+
+      - name: lastname
+        description: "Lastname of the person."
