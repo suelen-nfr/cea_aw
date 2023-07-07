@@ -1,25 +1,40 @@
-# Indicium Academy
+# Certificação em Analytics Engineer 
 
-Repositório para ser utilizado no desafio para a obtenção da certificação de Analytics Engineer by Indicium. Faça o fork deste repositório e o utilize durante o desafio para fazer a insgestão das tabelas do SAP do Adventure Works.
+Repositório para ser utilizado no desafio para a obtenção da certificação de Analytics Engineer by Indicium.
 
 ## Instruções
 
-Todas as tabelas do banco fonte do SAP da Adventure Works serão carregadas como seeds pelo dbt. Os arquivos .csv com os dados já estão na pasta de seeds.
+- Clonar o repositório da Adventure Works para a pasta local:
 
-Para fazer o carregamento de todas as tabelas usem o comando:
+https://github.com/suelen-nfr/cea_aw
+
+- Criar um projeto no BigQuery
+
+- Criar um ambiente virtual dentro do repositório local:
+
+python -m venv venv
+source venv/Scripts/activate
+
+- Fazer a instalação dos requirements:
+
+pip install -r requirements.txt
+
+- Rodar o dbt debug
+
+- Rodar o dbt deps
+
+Todas as tabelas do banco fonte do SAP da Adventure Works foram carregadas como seeds pelo dbt. Os arquivos .csv com os dados estão na pasta de seeds.
+
+Para fazer o carregamento de todas as tabelas usar o comando:
 - `dbt seed`
 
 Para carregar uma tabela especifíca utilizem o comando
 - `dbt seed -s nome_do_csv`
 
-### Problemas comuns
-
-Em caso a linha de comando do dbt fique com o status de estar sempre carregando, ou, o job do comando `dbt seed` fique rodando indefinitivamente mesmo após as 64 tabelas forem carregadas você precisará reiniciar o terminal. Para isso, clique nos três pontos no canto inferior direito ou no lado direito da linha de comando e escolha a opção `Restart IDE`.
-
+Para incluir o modelos no projeto dentro do BigQuery
+dbt run --select adventure_works
+dbt test --select adventure_works
 
 ## Recursos:
-- Learn more about dbt [in the docs](https://docs.getdbt.com/docs/introduction)
-- Check out [Discourse](https://discourse.getdbt.com/) for commonly asked questions and answers
-- Join the [dbt community](http://community.getbdt.com/) to learn from other analytics engineers
-- Find [dbt events](https://events.getdbt.com) near you
-- Check out [the blog](https://blog.getdbt.com/) for the latest news on dbt's development and best practices
+- https://docs.getdbt.com/docs
+
