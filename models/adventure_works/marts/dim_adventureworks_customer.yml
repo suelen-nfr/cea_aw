@@ -25,11 +25,5 @@ models:
       - name: title
         description: "Information about the person title."
 
-      - name: firstname
-        description: "First name of the person."
-
-      - name: middlename
-        description: "Middlename of the person."
-
-      - name: lastname
-        description: "Lastname of the person."
+      - name: full name
+        description: "First and last name of the person."

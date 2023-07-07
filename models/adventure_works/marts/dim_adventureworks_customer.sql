@@ -10,9 +10,7 @@ with
             businessentityid
             , persontype
             , title
-            , firstname
-            , middlename
-            , lastname
+            , fullname
         from {{ ref('stg_adventureworks_person') }}
     )
     , joined as (
@@ -22,9 +20,7 @@ with
             , sp.businessentityid
             , sp.persontype
             , sp.title
-            , sp.firstname
-            , sp.middlename
-            , sp.lastname
+            , sp.fullname
         from source_customer as sc
         left join source_person as sp on sc.personid = sp.businessentityid
         where personid is not null
@@ -37,9 +33,7 @@ with
             , businessentityid
             , persontype
             , title
-            , firstname
-            , middlename
-            , lastname
+            , fullname
         from joined
     )
 select *
