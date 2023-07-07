@@ -1,9 +1,3 @@
-{{
-    config(
-      materialized = 'table'
-    )
-}}
-
 with 
     source_businessentity as (
         select

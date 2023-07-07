@@ -1,18 +1,3 @@
-{{ config(
-    materialized='table'
-    , partition_by={
-        'field': 'metric_date'
-        , 'data_type': 'date'
-    }
-    , cluster_by=['metric_date', 'week', 'month', 'year']
-    , meta = {
-        'area': 'adventureworks'
-        , 'system': 'dbt_utils'
-        , 'table': 'dim_calendar'
-        , 'category': 'dimension'
-    }
-) }}
-
 with
     date_series as (
         {{ dbt_utils.date_spine(
