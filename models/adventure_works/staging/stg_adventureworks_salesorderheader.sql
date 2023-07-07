@@ -3,20 +3,20 @@ with
         select
             salesorderid
             , customerid
-            , orderdate
-            , duedate
-            , shipdate
-            , status as orderstatus
-            , accountnumber
             , territoryid
             , shiptoaddressid
             , shipmethodid
             , creditcardid
             , currencyrateid
+            , status as orderstatus
+            , accountnumber
             , subtotal
             , taxamt
             , freight
             , totaldue
+            , orderdate
+            , duedate
+            , shipdate            
         from {{ source('adventure_works','salesorderheader') }} as source
     ) 
 select *

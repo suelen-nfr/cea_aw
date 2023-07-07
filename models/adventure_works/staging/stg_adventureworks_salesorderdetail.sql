@@ -2,10 +2,10 @@ with
     renamed as (
         select
             salesorderid
-            , carriertrackingnumber
-            , orderqty
             , productid
             , specialofferid
+            , carriertrackingnumber
+            , orderqty
             , unitprice
             , unitpricediscount
         from {{ source('adventure_works','salesorderdetail') }} as source

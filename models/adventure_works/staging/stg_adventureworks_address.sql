@@ -3,7 +3,8 @@ with
         select
             addressid
             , stateprovinceid
-            , concat(addressline1,' ',addressline2) as address
+            , addressline1
+            , addressline2
             , city
             , postalcode
         from {{ source('adventure_works','address') }} as source

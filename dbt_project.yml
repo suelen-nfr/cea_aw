@@ -37,6 +37,10 @@ models:
     adventure_works:
       staging:
         +materialized: table
+      intermediate:
+        +materialized: ephemeral
+      marts:
+        +materialized: table
       tags:
         - "aw"
 
