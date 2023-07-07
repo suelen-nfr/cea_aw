@@ -4,9 +4,9 @@ with
             productid
             , productmodelid
             , productsubcategoryid
-            , productnumber
             , name as productname
             , productline
+            , productnumber
             , safetystocklevel
             , reorderpoint
             , standardcost

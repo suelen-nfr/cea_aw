@@ -4,7 +4,9 @@ with
             businessentityid
             , persontype
             , title
-            , concat(firstname, ' ', middlename, ' ', lastname) as completename
+            , firstname
+            , middlename
+            , lastname
             , emailpromotion
         from {{ source('adventure_works','person') }} as source
     ) 

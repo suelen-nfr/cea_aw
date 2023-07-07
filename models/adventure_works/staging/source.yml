@@ -266,7 +266,7 @@ sources:
             description: "Indicates the subject of the reason."
 
       - name: stateprovince
-        description: "This table contains information about addresses."
+        description: "This table contains information about state and provinces."
         columns:
           - name: stateprovinceid
             description: "Identification of the state or province."
@@ -283,4 +283,17 @@ sources:
             description: "Name of the state."
 
           - name: territoryid
-            description: "Identification of the territory."  
+            description: "Identification of the territory."
+      
+      - name: businessentityaddress
+        description: "This table contains information about addresses."
+        columns:
+          - name: businessentityid
+            description: "Identification of the business entity."
+            tests:
+              - not_null
+
+          - name: addressid
+            description: "Identification of the address."
+            tests:
+              - not_null
