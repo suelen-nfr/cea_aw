@@ -82,9 +82,6 @@ sources:
           - name: firstname
             description: "First name of the person."
 
-          - name: middlename
-            description: "Middlename of the person."
-
           - name: lastname
             description: "Lastname of the person."
 

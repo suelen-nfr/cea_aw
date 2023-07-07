@@ -4,9 +4,7 @@ with
             businessentityid
             , persontype
             , title
-            , firstname
-            , middlename
-            , lastname
+            , concat(firstname,' ',lastname) as fullname
         from {{ source('adventure_works','person') }} as source
     ) 
 select *
