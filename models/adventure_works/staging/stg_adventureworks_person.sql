@@ -7,7 +7,6 @@ with
             , firstname
             , middlename
             , lastname
-            , emailpromotion
         from {{ source('adventure_works','person') }} as source
     ) 
 select *

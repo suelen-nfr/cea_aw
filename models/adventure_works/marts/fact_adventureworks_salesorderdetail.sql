@@ -7,7 +7,7 @@ with
     )
     , dim_reason as (
         select
-            reason_sk_sk
+            reason_sk
             , salesorderid
             , salesreasonid
         from {{ ref('dim_adventureworks_reason') }}

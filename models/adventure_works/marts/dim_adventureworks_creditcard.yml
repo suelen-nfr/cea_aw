@@ -1,0 +1,23 @@
+version: 2
+ 
+models:
+  - name: dim_adventureworks_creditcard
+    description: "Information about the creditcards registered by the clients."
+    columns:
+      - name: creditcard_sk
+        description: "The primary key of the table."
+        tests:
+          - unique
+          - not_null
+     
+      - name: businessentityid
+        description: "Identification of the person."
+     
+      - name: creditcardid
+        description: "Identification of the creditcard."
+
+      - name: cardtype
+        description: "Indicates the type of the creditcard."
+
+      - name: cardnumber
+        description: "Number of the creditcard."

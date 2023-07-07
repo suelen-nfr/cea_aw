@@ -14,9 +14,9 @@ with
             , taxamt
             , freight
             , totaldue
-            , cast(source.orderdate as date) as metric_date
+            , cast(cast(source.orderdate as timestamp) as date) as metric_date
             , duedate
-            , shipdate            
+            , shipdate
         from {{ source('adventure_works','salesorderheader') }} as source
     ) 
 select *

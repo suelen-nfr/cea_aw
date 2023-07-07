@@ -1,0 +1,47 @@
+version: 2
+
+models:
+
+  - name: fact_adventureworks_salesorderdetail
+    description: "This table contains individual products associated with a specific sales order."
+    columns:
+      - name: orderdetails_sk
+        description: "Primary key generated from salesorderid, product_sk and reason_sk."
+        tests:
+          - not_null
+          - unique
+
+      - name: product_fk
+        description: "The foreign key from dim_adventreworks_product."
+        tests:
+          - relationships:
+              to: ref('dim_adventreworks_product')
+              field: product_sk
+ 
+      - name: reason_fk
+        description: "The foreign key from dim_adventureworks_reason."
+        tests:
+          - relationships:
+              to: ref('dim_adventureworks_reason')
+              field: reason_sk
+
+      - name: salesorderid
+        description: "Identification of the sales order."
+
+      - name: productid
+        description: "Identification of the product."
+
+      - name: specialofferid
+        description: "Promotional code."
+
+      - name: carriertrackingnumber
+        description: "Shipment tracking number supplied by the shipper."
+
+      - name: orderqty
+        description: "Quantity ordered per product."
+
+      - name: unitprice
+        description: "Selling price of a single product."
+
+      - name: unitpricediscount
+        description: "Discount amount." 

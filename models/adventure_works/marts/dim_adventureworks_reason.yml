@@ -1,0 +1,23 @@
+version: 2
+ 
+models:
+  - name: dim_adventureworks_reason
+    description: "This table contains information about the reason why the order was made."
+    columns:
+      - name: reason_sk
+        description: "The primary key of the table."
+        tests:
+          - unique
+          - not_null
+     
+      - name: salesreasonid
+        description: "Identification of the reason."
+     
+      - name: reason
+        description: "The reason itself."
+
+      - name: reasontype
+        description: "Indicates the subject of the reason."
+
+      - name: salesorderid
+        description: "Identification of the order."

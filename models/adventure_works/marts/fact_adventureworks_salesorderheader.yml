@@ -1,0 +1,69 @@
+version: 2
+
+models:
+
+  - name: fact_adventureworks_salesorderheader
+    description: "This table contains general sales order information."
+    columns:
+      - name: orderheader_sk
+        description: "Primary key generated from salesorderid, creditcard_sk, customer_sk and location_sk."
+        tests:
+          - not_null
+          - unique
+
+      - name: creditcard_fk
+        description: "The foreign key from dim_adventreworks_creditcard."
+        tests:
+          - relationships:
+              to: ref('dim_adventreworks_creditcard')
+              field: creditcard_sk
+ 
+      - name: customer_fk
+        description: "The foreign key from dim_adventureworks_customer."
+        tests:
+          - relationships:
+              to: ref('dim_adventureworks_customer')
+              field: customer_sk
+
+      - name: location_fk
+        description: "The foreign key from dim_adventureworks_location."
+        tests:
+          - relationships:
+              to: ref('dim_adventureworks_location')
+              field: location_sk
+
+      - name: metric_date
+        description: "The period considered."
+
+      - name: salesorderid
+        description: "Identification of the sales order."
+
+      - name: customerid
+        description: "Identification of the customer."
+
+      - name: shiptoaddressid
+        description: "Identificaaion of the address."
+
+      - name: creditcardid
+        description: "Identification of the creditcard."
+
+      - name: orderstatus
+        description: "Order current status."
+
+      - name: subtotal
+        description: "Sales subtotal." 
+
+      - name: taxamt
+        description: "Tax amount."
+
+      - name: freight
+        description: "Shipping cost."
+
+      - name: totaldue
+        description: "Total due from customer."
+
+      - name: duedate
+        description: "Date the order is due to the customer."
+
+      - name: shipdate
+        description: "Date the order was shipped to the custome."
