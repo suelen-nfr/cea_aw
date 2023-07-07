@@ -39,6 +39,7 @@ with
             , sp.emailpromotion
         from source_customer as sc
         left join source_person as sp on sc.personid = sp.businessentityid
+        where personid is not null
     )
     , final as (
         select
